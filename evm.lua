@@ -1,6 +1,8 @@
 require("stack")
 require("utils")
 
+-- todo: there should be one evm table that is non-local an can be created
+
 local stack = Stack:Create()
 
 function execute(code)
