@@ -1,19 +1,19 @@
-require "stack"
+require("stack")
 
 function split(s, delimiter)
-    local result = {}
+	local result = {}
 
-    for match in (s..delimiter):gmatch("(.-)"..delimiter) do
-    	local fixed = match:gsub("\t", "")
-      table.insert(result, fixed)
-    end
+	for match in (s .. delimiter):gmatch("(.-)" .. delimiter) do
+		local fixed = match:gsub("\t", "")
+		table.insert(result, fixed)
+	end
 
-    return result
+	return result
 end
 
 function trim(s)
-    return (s:gsub("^%s*(.-)%s*$", "%1"))
-  end  
+	return (s:gsub("^%s*(.-)%s*$", "%1"))
+end
 
 local stack = Stack:Create()
 
@@ -31,20 +31,20 @@ function execute(code)
 		elseif ins == "ADD" then
 			local a, b = stack:pop(2)
 			stack:push(a + b)
-		-- elseif ins == "SUB" then
-		-- 	local value1 = pop()
-		-- 	local value2 = pop()
-		-- 	push(value2 - value1)
-		-- elseif ins == "MUL" then
-		-- 	local value1 = pop()
-		-- 	local value2 = pop()
-		-- 	push(value1 * value2)
-		-- elseif ins == "DIV" then
-		-- 	local value1 = pop()
-		-- 	local value2 = pop()
-		-- 	push(value2 / value1)
-		-- elseif ins == "HALT" then
-		-- 	halt()
+			-- elseif ins == "SUB" then
+			-- 	local value1 = pop()
+			-- 	local value2 = pop()
+			-- 	push(value2 - value1)
+			-- elseif ins == "MUL" then
+			-- 	local value1 = pop()
+			-- 	local value2 = pop()
+			-- 	push(value1 * value2)
+			-- elseif ins == "DIV" then
+			-- 	local value1 = pop()
+			-- 	local value2 = pop()
+			-- 	push(value2 / value1)
+			-- elseif ins == "HALT" then
+			-- 	halt()
 		end
 	end
 end
